@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TestImplementaciónJWT.Entities;
 using TestImplementaciónJWT.Models.Request;
 using TestImplementaciónJWT.Models.Response;
 using TestImplementaciónJWT.Services;
@@ -20,12 +21,14 @@ namespace TestImplementaciónJWT.Controllers
         }
 
         [HttpGet("ping")]
+        [Authorize(Roles = Role.User)]
         public IActionResult ping()
         {
             return Ok(true);
         }
 
         [HttpGet("testToken")]
+        [Authorize(Roles = Role.Admin)]
         public IActionResult testToken()
         {
             return Ok("BIEEEEEEEEEEEEEEEEEN");

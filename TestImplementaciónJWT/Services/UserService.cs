@@ -46,6 +46,8 @@ namespace TestImplementaciónJWT.Services
                         new Claim[]
                         {
                             new Claim(ClaimTypes.NameIdentifier, model.UserName),  // es mejor guardarse el ID del usuario
+                            new Claim(ClaimTypes.Role, "Admin"), // Los roles se deben de recuperar de la BBDD para poder asignarlos y así que sea correcto, aquí los meto a pelo para probar.
+                            new Claim(ClaimTypes.Role, "User"),
                         }
                     ),
                 Expires = DateTime.UtcNow.AddDays(10), //expiración en 10 dias
